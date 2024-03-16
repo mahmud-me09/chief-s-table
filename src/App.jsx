@@ -10,6 +10,15 @@ import AllItemsInCart from './CartWantToCook/AllItemsInCart'
 function App() {
   const [recipeCart, setRecipeCart] = useState([])
   
+  const [cooking, setCooking] = useState([])
+  function handlePreparingButton(item){
+    const newRecipeCart = recipeCart.filter((cart) => cart.recipe_name !== item.recipe_name)
+    setRecipeCart(newRecipeCart)
+
+    const newCooking = [...cooking, item]
+    setCooking(newCooking)
+    console.log(cooking)
+  }
   
 
   function HandleWantToCookButton(recipe){
@@ -36,7 +45,7 @@ function App() {
           <RecipyCards HandleWantToCookButton={HandleWantToCookButton}></RecipyCards>
         </div>
         <div className='w-full lg:w-5/12'>
-          <AllItemsInCart recipeCart={recipeCart}></AllItemsInCart>
+          <AllItemsInCart cooking={cooking} handlePreparingButton={handlePreparingButton} recipeCart={recipeCart}></AllItemsInCart>
         </div>
       </div>
       <ToastContainer />

@@ -1,10 +1,11 @@
-function CartCurrentlyCooking(){
+function CartCurrentlyCooking({cook, index}){
+    console.log(cook)
     return(
         <tr className="bg-base-200">
-            <th>{1}</th>
-            <td>Cy Ganderton</td>
-            <td>Quality Control Specialist</td>
-            <td>Blue</td>
+            <th>{index+1}</th>
+            <td>{cook.recipe_name}</td>
+            <td>{cook.preparing_time_min}</td>
+            <td>{cook.calorie}</td>
         </tr>
     )
 }

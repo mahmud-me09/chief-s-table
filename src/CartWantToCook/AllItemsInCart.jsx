@@ -1,8 +1,7 @@
-import { useState } from "react"
 import CartWantToCook from "./CartWantToCook"
 import CartCurrentlyCooking from "../CartCurrentlyCooking/CartCurrentlyCooking"
 
-function AllItemsInCart({recipeCart}){
+function AllItemsInCart({recipeCart, cooking, handlePreparingButton}){
 
     return(
         <div className="border border-gray-300 rounded-2xl">
@@ -21,14 +20,14 @@ function AllItemsInCart({recipeCart}){
                     </tr>
                     </thead>
                     <tbody>
-                    {recipeCart.map((recipe,idx)=><CartWantToCook key={idx} index={idx} recipe={recipe} ></CartWantToCook>)}
+                    {recipeCart.map((recipe,idx)=><CartWantToCook handlePreparingButton={handlePreparingButton} key={idx} index={idx} recipe={recipe} ></CartWantToCook>)}
                     </tbody>
                 </table>
             </div>
         </div>
 
         <div>
-        <h1 className="text-center font-bold py-4 text-xl"> Currently cooking: {4}</h1>
+        <h1 className="text-center font-bold py-4 text-xl"> Currently cooking: {cooking.length}</h1>
             <div className="">
                 <table className="table">
                     {/* head */}
@@ -42,7 +41,7 @@ function AllItemsInCart({recipeCart}){
                     </thead>
                     <tbody>
                     {/* row 1 */}
-                    <CartCurrentlyCooking></CartCurrentlyCooking>
+                    {cooking.map((cook, idx)=><CartCurrentlyCooking key={idx} index={idx} cook={cook}></CartCurrentlyCooking>)}
                     </tbody>
                     <tfoot>
                         <tr>
