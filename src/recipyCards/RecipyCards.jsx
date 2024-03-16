@@ -2,6 +2,8 @@ import { useState } from "react"
 import RecipyCard from "../RecipyCard/RecipyCard"
 import { useEffect } from "react"
 
+import PropTypes from 'prop-types'
+
 function RecipyCards({HandleWantToCookButton}){
     const [recipyCards, setRecipyCards] = useState([])
     useEffect(()=>{
@@ -22,4 +24,9 @@ function RecipyCards({HandleWantToCookButton}){
         </div>
       )
 }
+
+RecipyCards.propTypes ={
+    HandleWantToCookButton: PropTypes.func.isRequired,
+}
+
 export default RecipyCards

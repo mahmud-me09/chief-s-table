@@ -1,6 +1,8 @@
 import CartWantToCook from "./CartWantToCook"
 import CartCurrentlyCooking from "../CartCurrentlyCooking/CartCurrentlyCooking"
 
+import PropTypes from 'prop-types'
+
 function AllItemsInCart({recipeCart, cooking, handlePreparingButton}){
     let totalPreparationTime =0
     // const time = cooking.map(cook =>totalPreparationTime += cook.preparing_time_min)
@@ -61,4 +63,11 @@ function AllItemsInCart({recipeCart, cooking, handlePreparingButton}){
     </div>
     )
 }
+
+AllItemsInCart.propTypes ={
+    recipeCart: PropTypes.array.isRequired,
+    cooking: PropTypes.array.isRequired,
+    handlePreparingButton: PropTypes.func.isRequired,
+}
+
 export default AllItemsInCart

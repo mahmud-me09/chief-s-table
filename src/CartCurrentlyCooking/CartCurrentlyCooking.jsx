@@ -1,3 +1,5 @@
+import PropTypes from 'prop-types'
+
 function CartCurrentlyCooking({cook, index}){
     return(
         <tr className="bg-base-200">
@@ -7,6 +9,11 @@ function CartCurrentlyCooking({cook, index}){
             <td>{cook.calories} calories</td>
         </tr>
     )
+}
+
+CartCurrentlyCooking.propTypes ={
+    cook: PropTypes.object.isRequired,
+    index: PropTypes.number.isRequired,
 }
 
 export default CartCurrentlyCooking

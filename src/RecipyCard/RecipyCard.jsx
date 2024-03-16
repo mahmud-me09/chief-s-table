@@ -1,5 +1,5 @@
 import { FaRegClock,FaGripfire  } from 'react-icons/fa';
-
+import PropTypes from 'prop-types'
 
 function RecipyCard({recipyCard, HandleWantToCookButton}){
     const {recipe_name, recipe_image, short_description, ingredients, preparing_time_min, calories} = recipyCard
@@ -32,4 +32,10 @@ function RecipyCard({recipyCard, HandleWantToCookButton}){
         </div>
     )
 }
+
+RecipyCard.propTypes ={
+    recipyCard: PropTypes.object.isRequired,
+    HandleWantToCookButton: PropTypes.func.isRequired,
+}
+
 export default RecipyCard
