@@ -2,7 +2,7 @@ import { useState } from "react"
 import RecipyCard from "../RecipyCard/RecipyCard"
 import { useEffect } from "react"
 
-function RecipyCards(){
+function RecipyCards({HandleWantToCookButton}){
     const [recipyCards, setRecipyCards] = useState([])
     useEffect(()=>{
         fetch('./recipy.json')
@@ -16,6 +16,7 @@ function RecipyCards(){
             <RecipyCard 
               key={idx} 
               recipyCard={recipyCard}
+              HandleWantToCookButton={HandleWantToCookButton}
             ></RecipyCard>
           ))}
         </div>

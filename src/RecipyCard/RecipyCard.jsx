@@ -1,6 +1,7 @@
 import { FaRegClock,FaGripfire  } from 'react-icons/fa';
 
-function RecipyCard({recipyCard}){
+
+function RecipyCard({recipyCard, HandleWantToCookButton}){
     const {recipe_name, recipe_image, short_description, ingredients, preparing_time_min, calories} = recipyCard
     return(
         <div>
@@ -24,7 +25,7 @@ function RecipyCard({recipyCard}){
                         </div>
                     </div>
                     <div className="card-actions">
-                        <button className="btn btn-accent rounded-3xl mt-4">Want to Cook</button>
+                        <button onClick={()=>HandleWantToCookButton(recipyCard)} className="btn btn-accent rounded-3xl mt-4">Want to Cook</button>
                     </div>
                 </div>
             </div>
