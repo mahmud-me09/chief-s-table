@@ -17,12 +17,11 @@ function App() {
 
     const newCooking = [...cooking, item]
     setCooking(newCooking)
-    console.log(cooking)
   }
   
 
   function HandleWantToCookButton(recipe){
-    if(!recipeCart.find(ri => ri.recipe_name === recipe.recipe_name)){
+    if(!recipeCart.find(ri => ri.recipe_name === recipe.recipe_name) && !cooking.find(ri => ri.recipe_name === recipe.recipe_name)){
       const recipeItemsAdded = [...recipeCart, recipe]
       setRecipeCart(recipeItemsAdded)
       toast.success('Recipe Added.')

@@ -2,7 +2,11 @@ import CartWantToCook from "./CartWantToCook"
 import CartCurrentlyCooking from "../CartCurrentlyCooking/CartCurrentlyCooking"
 
 function AllItemsInCart({recipeCart, cooking, handlePreparingButton}){
-
+    let totalPreparationTime =0
+    // const time = cooking.map(cook =>totalPreparationTime += cook.preparing_time_min)
+    const time = cooking.reduce((p,c) =>p + c.preparing_time_min,0)
+    const calorie = cooking.reduce((p,c) =>p + c.calories,0)
+    console.log(time)
     return(
         <div className="border border-gray-300 rounded-2xl">
         <div>
@@ -47,8 +51,8 @@ function AllItemsInCart({recipeCart, cooking, handlePreparingButton}){
                         <tr>
                             <td></td>
                             <td></td>
-                            <td>Total Time = {30} minutes</td>
-                            <td>Total Calorie = {600} calories</td>
+                            <td>Total Time = {time} minutes</td>
+                            <td>Total Calorie = {calorie} calories</td>
                         </tr>
                     </tfoot>
                 </table>
